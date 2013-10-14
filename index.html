@@ -1,53 +1,222 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Motionlead.github.io by motionlead</title>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Motionlead.github.io</h1>
-        <p></p>
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>MotionLead iOS documentation</title>
+
+</head>
+<body>
+<h1>MotionLead iOS documentation</h1>
+
+<h2>Getting started</h2>
+
+<p>The MotionLead framework interface is composed of two classes :<br/>
+* <code>MLManager</code> : best suited for apps built with <code>UIKit</code>. Once launched, the <code>MLManager</code> is entirely autonomous and will display rich ads on your application when one is available. It provide less control but is really easy to integrate.<br/>
+* <code>MLView</code> : it is a subclass of <code>UIView</code> and it allows you to display ads on specific screens of your app. It provide you more control on how the ad will be displayed.</p>
+
+<h2>Installation</h2>
+
+<p>This tutorial will show you how to install the MotionLead framework to an existing project.</p>
+
+<h3>Step 1: Download the framework</h3>
+
+<p>You can download the latest release on the framework on your MotionLead control panel</p>
+
+<h3>Step 2: Add the framework to your project</h3>
+
+<p>Drag and drop the framework to your project</p>
+
+<p align="center">
+  <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/draganddrop.gif?raw=true" alt="Drag & drop"/>
+</p>
 
 
-        <p class="view"><a href="https://github.com/motionlead">View My GitHub Profile</a></p>
+<h3>Step 3: Add the dependencies</h3>
 
-      </header>
-      <section>
-        <h1>
-<a name="motionlead-ios-documentation" class="anchor" href="#motionlead-ios-documentation"><span class="octicon octicon-link"></span></a>MotionLead iOS documentation</h1>
-
-<h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h2>
-
-<p>The MotionLead framework is composed of two classes :  </p>
+<p>Click on your application name then click on <em>Build Phases</em>. In the <em>Link Binary With Libraries</em> add the following frameworks :</p>
 
 <ul>
-<li>
-<code>MLManager</code> : best suited for apps built with <code>UIKit</code>. Once launched, the <code>MLManager</code> is entirely autonomous and will display rich ads on your application when one is available.<br>
-</li>
-<li>
-<code>MLView</code> : provide more control on the way the ad is displayed. It is a subclass of <code>UIView</code> and it allows you to display ads on specific screens of your app.</li>
-</ul><h3>
-<a name="mlmanager" class="anchor" href="#mlmanager"><span class="octicon octicon-link"></span></a>MLManager</h3>
+<li>libz.dylib</li>
+<li>QuartzCore.framework</li>
+<li>AdSupport.framework</li>
+<li>StoreKit.framework</li>
+</ul>
+
+
+<p><img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/libraries.png" alt="libraries" /></p>
+
+<h4>Step 3.5: Pre iOS6 support</h4>
+
+<p>If your app need to be compatible with iOS version prior to 6.0 you have to set <strong>AdSupport.framework</strong> to <em>optional</em></p>
+
+<p align="center">
+  <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/optional.gif?raw=true" alt="Optional framework"/>
+</p>
+
+
+<h3>Step 4: Modify the <em>Build Settings</em></h3>
+
+<p>Click on your application name then click on <em>Build Settings</em>. Select the <em>All</em> tab, then search for <em>Other Linker Flags</em>. Double click on it and add <strong>-ObjC</strong>. It will force <em>Xcode</em> to compile the categories provided by the framework.</p>
+
+<p><img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/otherlinkerflag.png" alt="Other Linker Flags" /></p>
+
+<h3>Step 5: Build</h3>
+
+<p>Build your app to make sure that your project is configured correctly.</p>
+
+<h2>MLManager</h2>
 
 <p>The <code>MLManager</code> is adapted for apps built with <code>UIKit</code> and the simpler class to use.
 Once the manager is launched</p>
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+</body>
 </html>
