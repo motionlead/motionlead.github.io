@@ -176,6 +176,8 @@ sup {
 
 <p>Drag and drop the framework to your project</p>
 
+<p>Make sure to select <strong>Copy items into destination group's folder (if needed)</strong></p>
+
 <p align="center">
   <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/draganddrop.gif?raw=true" alt="Drag & drop"/>
 </p>
@@ -186,10 +188,10 @@ sup {
 <p>Click on your application name then click on <em>Build Phases</em>. In the <em>Link Binary With Libraries</em> add the following frameworks :</p>
 
 <ul>
-<li>libz.dylib</li>
-<li>QuartzCore.framework</li>
-<li>AdSupport.framework</li>
-<li>StoreKit.framework</li>
+<li><strong>libz.dylib</strong></li>
+<li><strong>QuartzCore.framework</strong></li>
+<li><strong>AdSupport.framework</strong></li>
+<li><strong>StoreKit.framework</strong></li>
 </ul>
 
 
@@ -197,7 +199,7 @@ sup {
 
 <h4>Step 3.5: Pre iOS6 support</h4>
 
-<p>If your app need to be compatible with iOS version prior to 6.0 you have to set <strong>AdSupport.framework</strong> to <em>optional</em></p>
+<p>If your app need to be compatible with iOS versions prior to 6.0 you have to set <strong>AdSupport.framework</strong> to <em>optional</em></p>
 
 <p align="center">
   <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/optional.gif?raw=true" alt="Optional framework"/>
@@ -206,7 +208,7 @@ sup {
 
 <h3>Step 4: Modify the <em>Build Settings</em></h3>
 
-<p>Click on your application name then click on <em>Build Settings</em>. Select the <em>All</em> tab, then search for <em>Other Linker Flags</em>. Double click on it and add <strong>-ObjC</strong>. It will force <em>Xcode</em> to compile the categories provided by the framework.</p>
+<p>Click on your application name then click on <em>Build Settings</em>. Select the <em>All</em> tab, then search for <em>Other Linker Flags</em>. Double click on it and add the flag <strong>-ObjC</strong>. It will force <em>Xcode</em> to compile the categories provided by the framework.</p>
 
 <p><img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/otherlinkerflag.png" alt="Other Linker Flags" /></p>
 
@@ -216,7 +218,154 @@ sup {
 
 <h2>MLManager</h2>
 
-<p>The <code>MLManager</code> is adapted for apps built with <code>UIKit</code> and the simpler class to use.
-Once the manager is launched</p>
+<p>Using the <code>MLManager</code> is the simplest way to add the MotionLead technology to your app, however it is not adapted to all kind of apps. If you do not need control on how and when the ad is displayed, the <code>MLManager</code> is for you, otherwise take a look at <code>MLView</code>.</p>
+
+<h3>Usage</h3>
+
+<p>In your app delegate implementation file, add the following import at the top</p>
+
+<pre><code>#import &lt;MotionLead/MotionLead.h&gt;
+</code></pre>
+
+<p>Then, in the <code>application:didFinishLaunchingWithOptions:</code> method add the following line by replacing <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
+
+<pre><code>[MLManager startWithKey:@"YOUR_PUBLISHER_KEY"];
+</code></pre>
+
+<p>Congratulation, <strong>MotionLead</strong> is now up and running on your app! If you want to tune the behaviour of the <code>MLManager</code> go take a look at <code>MLManager.h</code>.</p>
+
+<h2>MLView</h2>
+
+<p>The <code>MLView</code> gives you more control on how and where the ad will be displayed.</p>
+
+<h3>Usage</h3>
+
+<p>The <code>MLView</code> can be created as a 300x250 unit or as a fullscreen ad (for both the iPhone and iPad).</p>
+
+<h4>300x250 ad unit</h4>
+
+<ol>
+<li><p>Import the MotionLead framework</p>
+
+<pre><code> #import &lt;MotionLead/MotionLead.h&gt;&gt;
+</code></pre></li>
+<li><p>Create a property holding the <code>MLView</code> instance</p>
+
+<pre><code> @interface ViewController : UIViewController
+ @property (strong, nonatomic)   MLView  *adView;
+ @end
+</code></pre></li>
+<li><p>Initialize <code>self.adView</code>, for instance in the <code>viewDidLoad</code> method if you are in a <code>UIViewController</code>. Replace <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
+
+<pre><code> self.adView = [[MLView alloc] initWithPublisherKey:@"YOUR_PUBLISHER_KEY" frame:MLVIEW_300x250_FRAME];
+</code></pre></li>
+<li><p>Optional: change the origin of <code>self.adView</code></p>
+
+<pre><code> CGRect frame = self.adView.frame;
+ frame.origin.x = 100;
+ frame.origin.y = 200;
+ self.adView.frame = frame;
+</code></pre></li>
+<li><p>Add <code>self.adView</code> to the view hierarchie</p>
+
+<pre><code> [self.view addSubview:self.adView];
+</code></pre></li>
+<li><p>Start loading the ad</p>
+
+<pre><code> [self.adView loadAd];
+</code></pre></li>
+<li><p>When you need to display the ad, call:</p>
+
+<pre><code> [self.adView displayAd];
+</code></pre></li>
+</ol>
+
+
+<h4>Interstitial ad unit</h4>
+
+<ol>
+<li><p>Import the MotionLead framework</p>
+
+<pre><code> #import &lt;MotionLead/MotionLead.h&gt;&gt;
+</code></pre></li>
+<li><p>Create a property holding the <code>MLView</code> instance</p>
+
+<pre><code> @interface ViewController : UIViewController
+ @property (strong, nonatomic)   MLView  *adView;
+ @end
+</code></pre></li>
+<li><p>Initialize <code>self.adView</code>, for instance in the <code>viewDidLoad</code> method if you are in a <code>UIViewController</code>. Replace <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
+
+<pre><code> self.adView = [[MLView alloc] initWithPublisherKey:@"YOUR_PUBLISHER_KEY" frame:MLVIEW_INTERSTITIAL_FRAME];
+</code></pre></li>
+<li><p>Start loading the ad</p>
+
+<pre><code> [self.adView loadAd];
+</code></pre></li>
+<li><p>When you need to display the ad, call:</p>
+
+<pre><code> [self.adView displayAd];
+</code></pre>
+
+<p>The <code>adView</code> will be displayed in the main <code>UIWindow</code> of your app without blocking the UI.</p></li>
+<li><p>When you will need to remove the ad, call:</p>
+
+<pre><code> [self.adView removeFromSuperview];
+</code></pre></li>
+</ol>
+
+
+<h4>MLView delegate</h4>
+
+<p>You should register to your <code>MLView</code> delegate in order to respond to changes in the state of the ad.</p>
+
+<p>In order to register to the delegate, add the protocol <code>MLViewDelegate</code> to your interface</p>
+
+<pre><code>@interface ViewController : UIViewController &lt;MLViewDelegate&gt;
+</code></pre>
+
+<p>Then, after initializing your <code>MLView</code> write :</p>
+
+<pre><code>self.adView.delegate = self;
+</code></pre>
+
+<p>You can now implements the methods defined in the <code>MLViewDelegate</code> protocol defined in the file <code>MLView.h</code></p>
+
+<h5>Examples</h5>
+
+<p>To display the ad right after it has been downloaded, write the following in your class:</p>
+
+<pre><code>- (void)mlViewDidLoadAd:(MLView *)view {
+    [view displayAd];
+}
+</code></pre>
+
+<p>To download a new ad right after the previous ad finished running:</p>
+
+<pre><code>- (void)mlViewDidFinishAd:(MLView *)view {
+    [view loadAd];
+}
+</code></pre>
+
+<!---        
+   If you want to check if an ad is ready to be displayed call:
+        
+        if ([self.adView isAdReady]) {
+            // The ad is loaded and ready to be displayed
+        }
+        
+   Alternatively, you can be notified as soon as an ad is ready to be displayed by setting the delegate of the `MLView` and by conforming to the `MLViewDelegate` protocol.
+   
+            // 
+            self.adView.delegate = self;
+            
+            [self.view addSubview:self.adView];
+        }
+        
+        - (void)mlViewDidLoadAd:(MLView *)view {
+            [view displayAd];
+        }
+-->
+
 </body>
 </html>
