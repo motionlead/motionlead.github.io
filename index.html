@@ -1,373 +1,208 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<style>
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote {
-    margin: 0;
-    padding: 0;
-}
-body {
-    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-    color: #737373;
-    background-color: white;
-    margin: 10px 13px 10px 13px;
-}
-table {
-	margin: 10px 0 15px 0;
-	border-collapse: collapse;
-}
-td,th {	
-	border: 1px solid #ddd;
-	padding: 3px 10px;
-}
-th {
-	padding: 5px 10px;	
-}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Motionlead.github.io by motionlead</title>
 
-a {
-    color: #0069d6;
-}
-a:hover {
-    color: #0050a3;
-    text-decoration: none;
-}
-a img {
-    border: none;
-}
-p {
-    margin-bottom: 9px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #404040;
-    line-height: 36px;
-}
-h1 {
-    margin-bottom: 18px;
-    font-size: 30px;
-}
-h2 {
-    font-size: 24px;
-}
-h3 {
-    font-size: 18px;
-}
-h4 {
-    font-size: 16px;
-}
-h5 {
-    font-size: 14px;
-}
-h6 {
-    font-size: 13px;
-}
-hr {
-    margin: 0 0 19px;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-}
-blockquote {
-    padding: 13px 13px 21px 15px;
-    margin-bottom: 18px;
-    font-family:georgia,serif;
-    font-style: italic;
-}
-blockquote:before {
-    content:"\201C";
-    font-size:40px;
-    margin-left:-10px;
-    font-family:georgia,serif;
-    color:#eee;
-}
-blockquote p {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 18px;
-    margin-bottom: 0;
-    font-style: italic;
-}
-code, pre {
-    font-family: Monaco, Andale Mono, Courier New, monospace;
-}
-code {
-    background-color: #fee9cc;
-    color: rgba(0, 0, 0, 0.75);
-    padding: 1px 3px;
-    font-size: 12px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-pre {
-    display: block;
-    padding: 14px;
-    margin: 0 0 18px;
-    line-height: 16px;
-    font-size: 11px;
-    border: 1px solid #d9d9d9;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-pre code {
-    background-color: #fff;
-    color:#737373;
-    font-size: 11px;
-    padding: 0;
-}
-sup {
-    font-size: 0.83em;
-    vertical-align: super;
-    line-height: 0;
-}
-* {
-	-webkit-print-color-adjust: exact;
-}
-@media screen and (min-width: 914px) {
-    body {
-        width: 854px;
-        margin:10px auto;
-    }
-}
-@media print {
-	body,code,pre code,h1,h2,h3,h4,h5,h6 {
-		color: black;
-	}
-	table, pre {
-		page-break-inside: avoid;
-	}
-}
-</style>
-<title>MotionLead iOS documentation</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-</head>
-<body>
-<h1>MotionLead iOS documentation</h1>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="without-description">
+        <h1>Motionlead.github.io</h1>
+        <p></p>
+        <p class="view"><a href="https://github.com/motionlead">View the Project on GitHub <small>motionlead</small></a></p>
+        <ul>
+          <li class="single"><a href="https://github.com/motionlead/MotionLead.github.io">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="motionlead-ios-integration" class="anchor" href="#motionlead-ios-integration"><span class="octicon octicon-link"></span></a>MotionLead iOS Integration</h1>
 
-<h2>Getting started</h2>
+<h2>
+<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of contents</h2>
 
-<p>The MotionLead framework interface is composed of two classes :<br/>
-* <code>MLManager</code> : best suited for apps built with <code>UIKit</code>. Once launched, the <code>MLManager</code> is entirely autonomous and will display rich ads on your application when one is available. It provide less control but is really easy to integrate.<br/>
-* <code>MLView</code> : it is a subclass of <code>UIView</code> and it allows you to display ads on specific screens of your app. It provide you more control on how the ad will be displayed.</p>
-
-<h2>Installation</h2>
-
-<p>This tutorial will show you how to install the MotionLead framework to an existing project.</p>
-
-<h3>Step 1: Download the framework</h3>
-
-<p>You can download the latest release on the framework on your MotionLead control panel</p>
-
-<h3>Step 2: Add the framework to your project</h3>
-
-<p>Drag and drop the framework to your project</p>
-
-<p>Make sure to select <strong>Copy items into destination group's folder (if needed)</strong></p>
-
-<p align="center">
-  <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/draganddrop.gif?raw=true" alt="Drag & drop"/>
-</p>
+<ol>
+<li><strong><a href="#getsdk">Getting the SDK</a></strong></li>
+<li>
+<strong><a href="#addsdk">Adding the SDK to your project</a></strong><br>
+</li>
+<li><strong><a href="#integratesdk">Integrating the SDK</a></strong></li>
+<li><strong><a href="#headers">Headers</a></strong></li>
+</ol><h2>
+<a name="getting-the-sdk-" class="anchor" href="#getting-the-sdk-"><span class="octicon octicon-link"></span></a>Getting the SDK <a name="getsdk"></a>
+</h2>
 
 
-<h3>Step 3: Add the dependencies</h3>
 
-<p>Click on your application name then click on <em>Build Phases</em>. In the <em>Link Binary With Libraries</em> add the following frameworks :</p>
+<p>The SDK is currently available to a restricted number of publishers.</p>
+
+<h2>
+<a name="adding-the-sdk-to-your-project-" class="anchor" href="#adding-the-sdk-to-your-project-"><span class="octicon octicon-link"></span></a>Adding the SDK to your project <a name="addsdk"></a>
+</h2>
+
+<h3>
+<a name="step-1-add-the-framework-to-your-project" class="anchor" href="#step-1-add-the-framework-to-your-project"><span class="octicon octicon-link"></span></a>Step 1: Add the framework to your project</h3>
+
+<p>Simply drag and drop the folder <code>MotionLead.framework</code> into your Project Navigator (<a href="http://motionlead.github.io/images/draganddrop.gif">how?</a>).</p>
+
+<blockquote>
+<p>Make sure to select <em>Copy items into destination group's folder (if needed)</em>.</p>
+</blockquote>
+
+<h3>
+<a name="step-2-link-with-the-dependencies" class="anchor" href="#step-2-link-with-the-dependencies"><span class="octicon octicon-link"></span></a>Step 2: Link with the dependencies</h3>
+
+<p>The MotionLead iOS SDK need to be linked with some frameworks (<a href="https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html">how?</a>). To do so click on  <em>Build Phases</em>. In the <em>Link Binary With Libraries</em> section add the the following frameworks :</p>
 
 <ul>
-<li><strong>libz.dylib</strong></li>
-<li><strong>QuartzCore.framework</strong></li>
-<li><strong>AdSupport.framework</strong></li>
-<li><strong>StoreKit.framework</strong></li>
-<li><strong>CoreTelephony.framework</strong></li>
-<li><strong>SystemConfiguration.framework</strong></li>
-</ul>
+<li>libz.dylib</li>
+<li>AdSupport.framework</li>
+<li>CoreMotion.framework</li>
+<li>CoreTelephony.framework</li>
+<li>QuartzCore.framework</li>
+<li>StoreKit.framework</li>
+<li>SystemConfiguration.framework</li>
+</ul><blockquote>
+<p>If your app need to be compatible with iOS versions prior to 6.0, set the <em>AdSupport.framework</em> as optional (<a href="http://motionlead.github.io/images/optional.gif">how?</a>).</p>
+</blockquote>
 
+<h3>
+<a name="step-3-modify-the-build-settings" class="anchor" href="#step-3-modify-the-build-settings"><span class="octicon octicon-link"></span></a>Step 3: Modify the <em>Build Settings</em>
+</h3>
 
-<p><img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/libraries.png" alt="libraries" /></p>
+<p>Click on <em>Build Settings</em>, select the <em>All</em> tab then search for <em>Other Linker Flags</em>. Double click on it and add the flag <strong><code>-ObjC</code></strong> (<a href="http://motionlead.github.io/images/otherlinkerflag.png">how?</a>).</p>
 
-<h4>Step 3.5: Pre iOS6 support</h4>
+<blockquote>
+<p>Make sure to write **<code>-ObjC</code>** and not <code>-Objc</code> or <code>-objc</code>, the case is important.</p>
+</blockquote>
 
-<p>If your app need to be compatible with iOS versions prior to 6.0 you have to set <strong>AdSupport.framework</strong> to <em>optional</em></p>
+<h3>
+<a name="step-4-build-your-app" class="anchor" href="#step-4-build-your-app"><span class="octicon octicon-link"></span></a>Step 4: Build your app</h3>
 
-<p align="center">
-  <img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/optional.gif?raw=true" alt="Optional framework"/>
-</p>
+<p>Build your app to make sure that your project is configured properly.</p>
 
+<blockquote>
+<p>If you are unable to build the app after adding the MotionLead SDK, head to our <a href="https://motionlead.github.io/faq.html">FAQ</a>.</p>
+</blockquote>
 
-<h3>Step 4: Modify the <em>Build Settings</em></h3>
+<hr><h2>
+<a name="integrating-the-sdk-" class="anchor" href="#integrating-the-sdk-"><span class="octicon octicon-link"></span></a>Integrating the SDK <a name="integratesdk"></a>
+</h2>
 
-<p>Click on your application name then click on <em>Build Settings</em>. Select the <em>All</em> tab, then search for <em>Other Linker Flags</em>. Double click on it and add the flag <strong>-ObjC</strong>. It will force <em>Xcode</em> to compile the categories provided by the framework.</p>
+<p>The main object of the MotionLead iOS SDK is the <code>MLView</code>. This class is a subclass of <code>UIView</code> and allows you to display animated ads throughout your application.</p>
 
-<p><img src="https://raw.github.com/motionlead/MotionLead.github.io/master/images/otherlinkerflag.png" alt="Other Linker Flags" /></p>
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<h3>Step 5: Build</h3>
+<ul>
+<li>
+<p>Import the MotionLead framework</p>
 
-<p>Build your app to make sure that your project is configured correctly.</p>
+<div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;MotionLead/MotionLead.h&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>Create a property holding the <code>MLView</code> instance and add the <code>MLViewDelegate</code> protocol</p>
 
-<h2>MLManager</h2>
+<div class="highlight highlight-objective-c"><pre><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">MLViewDelegate</span><span class="o">&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>   <span class="n">MLView</span>  <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
+<span class="k">@end</span>
+</pre></div>
+</li>
+<li>
+<p>Initialize <code>self.adView</code> by replacing <code>PUBLISHER_KEY</code> with the key provided for your app and set the delegate.</p>
 
-<p>Using the <code>MLManager</code> is the simplest way to add the MotionLead technology to your app, however it is not adapted to all kind of apps. If you do not need control on how and when the ad is displayed, the <code>MLManager</code> is for you, otherwise take a look at <code>MLView</code>.</p>
-
-<h3>Usage</h3>
-
-<p>In your app delegate implementation file, add the following import at the top</p>
-
-<pre><code>#import &lt;MotionLead/MotionLead.h&gt;
+<pre lang="objective-c."><code>self.adView = [[MLView alloc] initWithPublisherKey:@"PUBLISHER_KEY" frame:self.view.bounds];
+self.adView.delegate = self;
 </code></pre>
+</li>
+</ul><blockquote>
+<p>If your app support auto-rotation add:
+<code>self.adView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;</code></p>
+</blockquote>
 
-<p>Then, in the <code>application:didFinishLaunchingWithOptions:</code> method add the following line by replacing <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
+<ul>
+<li>
+<p>Add <code>self.adView</code> to the view hierarchy</p>
 
-<pre><code>[MLManager startWithKey:@"YOUR_PUBLISHER_KEY"];
-</code></pre>
+<div class="highlight highlight-objective-c"><pre><span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li>
+<p>To load an ad, call:</p>
 
-<p>Congratulation, <strong>MotionLead</strong> is now up and running on your app! If you want to tune the behaviour of the <code>MLManager</code> go take a look at <code>MLManager.h</code>.</p>
+<div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">loadAd</span><span class="p">];</span>
+</pre></div>
+</li>
+</ul><blockquote>
+<p>Once the ad is loaded, the SDK will call the delegate's <code>mlViewDidLoadAd:</code>.</p>
+</blockquote>
 
-<h2>MLView</h2>
+<ul>
+<li>To display an ad, call:
+<code>objective-c
+[self.adView displayAd];
+</code>
+</li>
+</ul><blockquote>
+<p>If no ad has been downloaded, this call does nothing.</p>
+</blockquote>
 
-<p>The <code>MLView</code> gives you more control on how and where the ad will be displayed.</p>
+<h3>
+<a name="mlview-delegate" class="anchor" href="#mlview-delegate"><span class="octicon octicon-link"></span></a>MLView Delegate</h3>
 
-<h3>Usage</h3>
+<p>In order to respond to changes in the state of the ad you should implement <code>MLViewDelegate</code> protocol methods.</p>
 
-<p>The <code>MLView</code> can be created as a 300x250 unit or as a fullscreen ad (for both the iPhone and iPad).</p>
-
-<h4>300x250 ad unit</h4>
-
-<ol>
-<li><p>Import the MotionLead framework</p>
-
-<pre><code> #import &lt;MotionLead/MotionLead.h&gt;&gt;
-</code></pre></li>
-<li><p>Create a property holding the <code>MLView</code> instance</p>
-
-<pre><code> @interface ViewController : UIViewController
- @property (strong, nonatomic)   MLView  *adView;
- @end
-</code></pre></li>
-<li><p>Initialize <code>self.adView</code>, for instance in the <code>viewDidLoad</code> method if you are in a <code>UIViewController</code>. Replace <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
-
-<pre><code> self.adView = [[MLView alloc] initWithPublisherKey:@"YOUR_PUBLISHER_KEY" frame:MLVIEW_300x250_FRAME];
-</code></pre></li>
-<li><p>Optional: change the origin of <code>self.adView</code></p>
-
-<pre><code> CGRect frame = self.adView.frame;
- frame.origin.x = 100;
- frame.origin.y = 200;
- self.adView.frame = frame;
-</code></pre></li>
-<li><p>Add <code>self.adView</code> to the view hierarchie</p>
-
-<pre><code> [self.view addSubview:self.adView];
-</code></pre></li>
-<li><p>Start loading the ad</p>
-
-<pre><code> [self.adView loadAd];
-</code></pre></li>
-<li><p>When you need to display the ad, call:</p>
-
-<pre><code> [self.adView displayAd];
-</code></pre></li>
-</ol>
-
-
-<h4>Interstitial ad unit</h4>
-
-<ol>
-<li><p>Import the MotionLead framework</p>
-
-<pre><code> #import &lt;MotionLead/MotionLead.h&gt;&gt;
-</code></pre></li>
-<li><p>Create a property holding the <code>MLView</code> instance</p>
-
-<pre><code> @interface ViewController : UIViewController
- @property (strong, nonatomic)   MLView  *adView;
- @end
-</code></pre></li>
-<li><p>Initialize <code>self.adView</code>, for instance in the <code>viewDidLoad</code> method if you are in a <code>UIViewController</code>. Replace <em>YOUR_PUBLISHER_KEY</em> by the key provided by MotionLead</p>
-
-<pre><code> self.adView = [[MLView alloc] initWithPublisherKey:@"YOUR_PUBLISHER_KEY" frame:MLVIEW_INTERSTITIAL_FRAME];
-</code></pre></li>
-<li><p>Start loading the ad</p>
-
-<pre><code> [self.adView loadAd];
-</code></pre></li>
-<li><p>When you need to display the ad, call:</p>
-
-<pre><code> [self.adView displayAd];
-</code></pre>
-
-<p>The <code>adView</code> will be displayed in the main <code>UIWindow</code> of your app without blocking the UI.</p></li>
-<li><p>When you will need to remove the ad, call:</p>
-
-<pre><code> [self.adView removeFromSuperview];
-</code></pre></li>
-</ol>
-
-
-<h4>MLView delegate</h4>
-
-<p>You should register to your <code>MLView</code> delegate in order to respond to changes in the state of the ad.</p>
-
-<p>In order to register to the delegate, add the protocol <code>MLViewDelegate</code> to your interface</p>
-
-<pre><code>@interface ViewController : UIViewController &lt;MLViewDelegate&gt;
-</code></pre>
-
-<p>Then, after initializing your <code>MLView</code> write :</p>
-
-<pre><code>self.adView.delegate = self;
-</code></pre>
-
-<p>You can now implements the methods defined in the <code>MLViewDelegate</code> protocol defined in the file <code>MLView.h</code></p>
-
-<h5>Examples</h5>
+<h4>
+<a name="examples-" class="anchor" href="#examples-"><span class="octicon octicon-link"></span></a>Examples <a name="Examples"></a>
+</h4>
 
 <p>To display the ad right after it has been downloaded, write the following in your class:</p>
 
-<pre><code>- (void)mlViewDidLoadAd:(MLView *)view {
-    [view displayAd];
-}
-</code></pre>
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidLoadAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">view</span> <span class="n">displayAd</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>To download a new ad right after the previous ad finished running:</p>
 
-<pre><code>- (void)mlViewDidFinishAd:(MLView *)view {
-    [view loadAd];
-}
-</code></pre>
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidFinishAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">view</span> <span class="n">loadAd</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
 
-<!---        
-   If you want to check if an ad is ready to be displayed call:
-        
-        if ([self.adView isAdReady]) {
-            // The ad is loaded and ready to be displayed
-        }
-        
-   Alternatively, you can be notified as soon as an ad is ready to be displayed by setting the delegate of the `MLView` and by conforming to the `MLViewDelegate` protocol.
-   
-            // 
-            self.adView.delegate = self;
-            
-            [self.view addSubview:self.adView];
-        }
-        
-        - (void)mlViewDidLoadAd:(MLView *)view {
-            [view displayAd];
-        }
--->
+<p>To be notified when the user will exit the app after clicking the ad:</p>
 
-</body>
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">willLeaveApplicationFromMLView:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="c1">// Save data, pause game, ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="headers-" class="anchor" href="#headers-"><span class="octicon octicon-link"></span></a>Headers <a name="headers"></a>
+</h2>
+
+<p>The headers are fully documented, don't hesitate to take a look for more precisions about a method</p>
+      </section>
+    </div>
+    <footer>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
 </html>
