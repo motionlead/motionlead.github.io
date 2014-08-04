@@ -72,6 +72,7 @@
 <li>QuartzCore.framework</li>
 <li>StoreKit.framework</li>
 <li>SystemConfiguration.framework</li>
+<li>MediaPlayer.framework</li>
 </ul><blockquote>
 <p>If your app need to be compatible with iOS versions prior to 6.0, set the <em>AdSupport.framework</em> as optional (<a href="http://motionlead.github.io/images/optional.gif">how?</a>).</p>
 </blockquote>
@@ -111,8 +112,8 @@
 
 <ul>
 <li>Create a property holding the <code>MLView</code> instance and add the <code>MLViewDelegate</code> protocol</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">MLViewDelegate</span><span class="o">&gt;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>   <span class="n">MLView</span>  <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
+</ul><div class="highlight highlight-objective-c"><pre><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span> <span class="o">&lt;</span><span class="n">MLViewDelegate</span><span class="o">&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span>   <span class="n">MLView</span>  <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
 <span class="k">@end</span>
 </pre></div>
 
@@ -129,16 +130,16 @@ self.adView.delegate = self;
 
 <ul>
 <li>Add <code>self.adView</code> to the view hierarchy</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
+</ul><div class="highlight highlight-objective-c"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 
 <ul>
 <li>To load an ad, call:</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">loadAd</span><span class="p">];</span>
+</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">loadAd</span><span class="p">];</span>
 </pre></div>
 
 <blockquote>
@@ -147,7 +148,7 @@ self.adView.delegate = self;
 
 <ul>
 <li>To display an ad, call:</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">displayAd</span><span class="p">];</span>
+</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">displayAd</span><span class="p">];</span>
 </pre></div>
 
 <blockquote>
@@ -165,21 +166,21 @@ self.adView.delegate = self;
 
 <p>To display the ad right after it has been downloaded, write the following in your class:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidLoadAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidLoadAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
     <span class="p">[</span><span class="n">view</span> <span class="n">displayAd</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 
 <p>To download a new ad right after the previous ad finished running:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidFinishAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidFinishAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
     <span class="p">[</span><span class="n">view</span> <span class="n">loadAd</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 
 <p>To be notified when the user will exit the app after clicking the ad:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">willLeaveApplicationFromMLView:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">willLeaveApplicationFromMLView:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
     <span class="c1">// Save data, pause game, ...</span>
 <span class="p">}</span>
 </pre></div>
