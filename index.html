@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Motionlead.github.io by motionlead</title>
+    <title>motionlead.github.io by motionlead</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -17,179 +17,155 @@
   <body>
     <div class="wrapper">
       <header class="without-description">
-        <h1>Motionlead.github.io</h1>
+        <h1>motionlead.github.io</h1>
         <p></p>
         <p class="view"><a href="https://github.com/motionlead">View the Project on GitHub <small>motionlead</small></a></p>
         <ul>
-          <li class="single"><a href="https://github.com/motionlead/MotionLead.github.io">View On <strong>GitHub</strong></a></li>
+          <li class="single"><a href="https://github.com/motionlead/motionlead.github.io">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
-        <h1>
-<a name="motionlead-ios-integration" class="anchor" href="#motionlead-ios-integration"><span class="octicon octicon-link"></span></a>MotionLead iOS Integration</h1>
-
-<h2>
-<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of contents</h2>
-
-<ol>
-<li><strong><a href="#getsdk">Getting the SDK</a></strong></li>
-<li>
-<strong><a href="#addsdk">Adding the SDK to your project</a></strong><br>
-</li>
-<li><strong><a href="#integratesdk">Integrating the SDK</a></strong></li>
-<li><strong><a href="#headers">Headers</a></strong></li>
-</ol><h2>
-<a name="getting-the-sdk-" class="anchor" href="#getting-the-sdk-"><span class="octicon octicon-link"></span></a>Getting the SDK <a name="getsdk"></a>
-</h2>
-
-
-
-<p>The SDK is currently available to a restricted number of publishers.</p>
-
-<h2>
-<a name="adding-the-sdk-to-your-project-" class="anchor" href="#adding-the-sdk-to-your-project-"><span class="octicon octicon-link"></span></a>Adding the SDK to your project <a name="addsdk"></a>
-</h2>
+        <h2>
+<a name="motionlead-ios-integration" class="anchor" href="#motionlead-ios-integration"><span class="octicon octicon-link"></span></a>MotionLead iOS Integration</h2>
 
 <h3>
-<a name="step-1-add-the-framework-to-your-project" class="anchor" href="#step-1-add-the-framework-to-your-project"><span class="octicon octicon-link"></span></a>Step 1: Add the framework to your project</h3>
+<a name="adding-the-sdk-to-your-project" class="anchor" href="#adding-the-sdk-to-your-project"><span class="octicon octicon-link"></span></a>Adding the SDK to your project</h3>
 
-<p>Simply drag and drop the folder <code>MotionLead.framework</code> into your Project Navigator (<a href="http://motionlead.github.io/images/draganddrop.gif">how?</a>).</p>
+<h4>
+<a name="step-1-add-the-framework-to-your-project" class="anchor" href="#step-1-add-the-framework-to-your-project"><span class="octicon octicon-link"></span></a>Step 1: Add the framework to your project</h4>
+
+<p>Simply drag and drop the folder MotionLead.framework into your Project Navigator (<a href="http://motionlead.github.io/images/draganddrop.gif">how?</a>).</p>
 
 <blockquote>
-<p>Make sure to select <em>Copy items into destination group's folder (if needed)</em>.</p>
+<p>Make sure to select Copy items into destination group's folder (if needed).</p>
 </blockquote>
 
-<h3>
-<a name="step-2-link-with-the-dependencies" class="anchor" href="#step-2-link-with-the-dependencies"><span class="octicon octicon-link"></span></a>Step 2: Link with the dependencies</h3>
+<h4>
+<a name="step-2-link-with-the-dependencies" class="anchor" href="#step-2-link-with-the-dependencies"><span class="octicon octicon-link"></span></a>Step 2: Link with the dependencies</h4>
 
-<p>The MotionLead iOS SDK need to be linked with some frameworks (<a href="https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html">how?</a>). To do so click on  <em>Build Phases</em>. In the <em>Link Binary With Libraries</em> section add the the following frameworks :</p>
+<p>The MotionLead iOS SDK need to be linked with some frameworks (how?). To do so click on Build Phases. In the Link Binary With Libraries section add the the following frameworks :</p>
 
 <ul>
 <li>libz.dylib</li>
+<li>libc++.dylib</li>
 <li>AdSupport.framework</li>
 <li>CoreMotion.framework</li>
 <li>CoreTelephony.framework</li>
+<li>OpenGLES.framework</li>
 <li>QuartzCore.framework</li>
 <li>StoreKit.framework</li>
 <li>SystemConfiguration.framework</li>
-<li>MediaPlayer.framework</li>
+<li>Security.framework</li>
 </ul><blockquote>
-<p>If your app need to be compatible with iOS versions prior to 6.0, set the <em>AdSupport.framework</em> as optional (<a href="http://motionlead.github.io/images/optional.gif">how?</a>).</p>
+<p>If your app need to be compatible with iOS versions prior to 6.0, set the AdSupport.framework as optional (<a href="http://motionlead.github.io/images/optional.gif">how?</a>).</p>
 </blockquote>
 
-<h3>
-<a name="step-3-modify-the-build-settings" class="anchor" href="#step-3-modify-the-build-settings"><span class="octicon octicon-link"></span></a>Step 3: Modify the <em>Build Settings</em>
-</h3>
+<h4>
+<a name="step-3-modify-the-build-settings" class="anchor" href="#step-3-modify-the-build-settings"><span class="octicon octicon-link"></span></a>Step 3: Modify the Build Settings</h4>
 
-<p>Click on <em>Build Settings</em>, select the <em>All</em> tab then search for <em>Other Linker Flags</em>. Double click on it and add the flag <strong><code>-ObjC</code></strong> (<a href="http://motionlead.github.io/images/otherlinkerflag.png">how?</a>).</p>
+<p>Click on Build Settings, select the All tab then search for Other Linker Flags. Double click on it and add the flag <strong>-ObjC</strong> (<a href="http://motionlead.github.io/images/otherlinkerflag.png">how?</a>).</p>
 
 <blockquote>
-<p>Make sure to write <code>-ObjC</code> and not <code>-Objc</code> or <code>-objc</code>, the case is important.</p>
+<p>Make sure to write <strong>-ObjC</strong> and not <strong>-Objc</strong> or <strong>-objc</strong>, the case is important.</p>
 </blockquote>
 
-<h3>
-<a name="step-4-build-your-app" class="anchor" href="#step-4-build-your-app"><span class="octicon octicon-link"></span></a>Step 4: Build your app</h3>
+<h4>
+<a name="step-4-build-your-app" class="anchor" href="#step-4-build-your-app"><span class="octicon octicon-link"></span></a>Step 4: Build your app</h4>
 
 <p>Build your app to make sure that your project is configured properly.</p>
 
 <blockquote>
-<p>If you are unable to build the app after adding the MotionLead SDK, head to our <a href="https://motionlead.github.io/faq.html">FAQ</a>.</p>
+<p>If you are unable to build the app after adding the MotionLead SDK, contact us.</p>
 </blockquote>
 
-<hr><h2>
-<a name="integrating-the-sdk-" class="anchor" href="#integrating-the-sdk-"><span class="octicon octicon-link"></span></a>Integrating the SDK <a name="integratesdk"></a>
-</h2>
+<hr><h3>
+<a name="integrating-the-sdk" class="anchor" href="#integrating-the-sdk"><span class="octicon octicon-link"></span></a>Integrating the SDK</h3>
 
-<p>The main object of the MotionLead iOS SDK is the <code>MLView</code>. This class is a subclass of <code>UIView</code> and allows you to display animated ads throughout your application.</p>
+<p>The main object of the MotionLead iOS SDK is the MLView. This class is a subclass of UIView and allows you to display animated ads throughout your application.</p>
 
-<h3>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+<h4>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h4>
 
 <ul>
 <li>Import the MotionLead framework</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;MotionLead/MotionLead.h&gt;</span>
+</ul><div class="highlight highlight-objc"><pre><span class="cp">#import &lt;MotionLead/MotionLead.h&gt;</span>
 </pre></div>
 
 <ul>
 <li>Create a property holding the <code>MLView</code> instance and add the <code>MLViewDelegate</code> protocol</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span> <span class="o">&lt;</span><span class="n">MLViewDelegate</span><span class="o">&gt;</span>
+</ul><div class="highlight highlight-objc"><pre><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span> <span class="o">&lt;</span><span class="n">MLViewDelegate</span><span class="o">&gt;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span>   <span class="n">MLView</span>  <span class="o">*</span><span class="n">adView</span><span class="p">;</span>
 <span class="k">@end</span>
 </pre></div>
 
 <ul>
 <li>Initialize <code>self.adView</code> by replacing <code>PUBLISHER_KEY</code> with the key provided for your app and set the delegate.</li>
-</ul><pre lang="objective-c."><code>self.adView = [[MLView alloc] initWithPublisherKey:@"PUBLISHER_KEY" frame:self.view.bounds];
-self.adView.delegate = self;
-</code></pre>
-
-<blockquote>
-<p>If your app support auto-rotation add:
-<code>self.adView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;</code></p>
-</blockquote>
-
-<ul>
-<li>Add <code>self.adView</code> to the view hierarchy</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span><span class="p">];</span>
-<span class="p">}</span>
+</ul><div class="highlight highlight-objc"><pre><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MLView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithPublisherKey</span><span class="p">:</span><span class="s">@"PUBLISHER_KEY"</span><span class="p">];</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">adView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
 </pre></div>
 
 <ul>
 <li>To load an ad, call:</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">loadAd</span><span class="p">];</span>
+</ul><div class="highlight highlight-objc"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">loadAd</span><span class="p">];</span>
 </pre></div>
 
 <blockquote>
-<p>Once the ad is loaded, the SDK will call the delegate's <code>mlViewDidLoadAd:</code>.</p>
+<p>Once the ad is loaded, the SDK will call the delegate's <strong>mlViewDidLoadAd:</strong>.</p>
 </blockquote>
 
 <ul>
 <li>To display an ad, call:</li>
-</ul><div class="highlight highlight-objective-c"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">displayAd</span><span class="p">];</span>
+</ul><div class="highlight highlight-objc"><pre><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">adView</span> <span class="n">displayAd</span><span class="p">];</span>
 </pre></div>
 
 <blockquote>
-<p>If no ad has been downloaded, this call does nothing.</p>
+<p>If no ad has been downloaded or an ad is already being displayed, the SDK will call the delegate's <strong>mlviewDidFailToDisplayAd:withError:</strong></p>
 </blockquote>
 
-<h3>
-<a name="mlview-delegate" class="anchor" href="#mlview-delegate"><span class="octicon octicon-link"></span></a>MLView Delegate</h3>
+<h4>
+<a name="class-methods" class="anchor" href="#class-methods"><span class="octicon octicon-link"></span></a>Class methods</h4>
+
+<p>As long as the MLView is not displaying and ad, it will be deallocated when the object retaining it will be deallocated.
+When the MLView is displaying and ad, it will live on its own even if the object retaining it is deallocated.</p>
+
+<p>To remove an MLView from the view hierarchy, call the class method:</p>
+
+<div class="highlight highlight-objc"><pre><span class="p">[</span><span class="n">MLView</span> <span class="n">dismiss</span><span class="p">];</span>
+</pre></div>
+
+<p>To get the current MLView displaying an ad, call the class method:</p>
+
+<div class="highlight highlight-objc"><pre><span class="p">[</span><span class="n">MLView</span> <span class="n">currentMLView</span><span class="p">];</span>
+</pre></div>
+
+<p>Those two methods can be called anywhere in your app.</p>
+
+<h4>
+<a name="mlview-delegate" class="anchor" href="#mlview-delegate"><span class="octicon octicon-link"></span></a>MLView Delegate</h4>
 
 <p>In order to respond to changes in the state of the ad you should implement <code>MLViewDelegate</code> protocol methods.</p>
 
-<h4>
-<a name="examples-" class="anchor" href="#examples-"><span class="octicon octicon-link"></span></a>Examples <a name="Examples"></a>
-</h4>
+<h5>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h5>
 
 <p>To display the ad right after it has been downloaded, write the following in your class:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidLoadAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+<div class="highlight highlight-objc"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidLoadAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
     <span class="p">[</span><span class="n">view</span> <span class="n">displayAd</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 
-<p>To download a new ad right after the previous ad finished running:</p>
+<p>To be notified that the application will be exited due to the user clicking on a call to action:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewDidFinishAd:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">view</span> <span class="n">loadAd</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mlViewWillLeaveApplication:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+  <span class="c1">// Save data, pause game, etc</span>
 <span class="p">}</span>
 </pre></div>
 
-<p>To be notified when the user will exit the app after clicking the ad:</p>
+<h3>
+<a name="headers" class="anchor" href="#headers"><span class="octicon octicon-link"></span></a>Headers</h3>
 
-<div class="highlight highlight-objective-c"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">willLeaveApplicationFromMLView:</span><span class="p">(</span><span class="n">MLView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
-    <span class="c1">// Save data, pause game, ...</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2>
-<a name="headers-" class="anchor" href="#headers-"><span class="octicon octicon-link"></span></a>Headers <a name="headers"></a>
-</h2>
-
-<p>The headers are fully documented, don't hesitate to take a look for more precisions about a method</p>
+<p>Headers are fully documented, don't hesitate to take a look for an exhaustive list of methods and delegate call available in the SDK.</p>
       </section>
     </div>
     <footer>
